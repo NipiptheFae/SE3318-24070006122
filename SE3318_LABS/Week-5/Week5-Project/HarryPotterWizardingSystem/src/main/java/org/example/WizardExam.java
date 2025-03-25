@@ -4,13 +4,12 @@ import java.util.List;
 
 public class WizardExam {
 
-    // List to store the required spells for this exam
-    private List<String> requiredSpells;
+    public List<String> requiredSpells;
 
     /**
-     * Constructor to initialize the WizardExam with required spells.
-     *
-     * @param requiredSpells List of spells required for this exam.
+     * Initializing the WizardExam with required spells.
+     * @param requiredSpells, List of spells needed for this exam.
+     * @throws IllegalArgumentException if the list is empty.
      */
     public WizardExam(List<String> requiredSpells) {
         if (requiredSpells == null || requiredSpells.isEmpty()) {
@@ -21,39 +20,39 @@ public class WizardExam {
 
     /**
      * Checks if the student knows all the required spells for the exam.
-     *
-     * @param student The student who is attempting the exam.
-     * @return true if the student knows all required spells, false otherwise.
+     * @param student The student who is on the exam.
+     * @return boolean to see if the student knows all required spells.
+     * @throws IllegalArgumentException if the student is null.
      */
     public boolean pass(Student student) {
         if (student == null) {
             throw new IllegalArgumentException("Student cannot be null.");
         }
 
-        // Check if the student knows all the required spells
         for (String spell : requiredSpells) {
             if (!student.containsSpell(spell)) {
-                return false; // The student failed if they don't know this spell
+                return false;
             }
         }
-        return true; // The student passes if they know all the required spells
+        return true;
     }
 
     /**
-     * Evaluates the student's performance based on whether they passed the exam.
-     *
-     * @param student The student who is being evaluated.
+     * Evaluates the student's performance, using the pass() method.
+     * @param student The student who is on the exam.
+     * @throws IllegalArgumentException if the student is null.
      */
     public void evaluate(Student student) {
         if (student == null) {
             throw new IllegalArgumentException("Student cannot be null.");
         }
 
-        // Evaluate if the student passes or fails
         if (pass(student)) {
             System.out.println(student.name + " has passed the exam!");
         } else {
             System.out.println(student.name + " has failed the exam.");
         }
+
+
     }
 }

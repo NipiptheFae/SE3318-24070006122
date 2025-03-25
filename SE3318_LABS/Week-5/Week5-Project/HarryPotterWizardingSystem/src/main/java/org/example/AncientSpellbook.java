@@ -39,6 +39,12 @@ public class AncientSpellbook {
         }
     }
 
+    /**
+     *
+     * @param prefix to search the list, requires prefix not to be null or empty,
+     * @return result, the list of spells starts with the prefix
+     * @throws IllegalArgumentException if prefix does not meet the requirements.
+     */
     public List<String> getSpellsByPrefix(String prefix) {
         // Preconditions: prefix should not be null or empty
         if (prefix == null || prefix.isEmpty()) {

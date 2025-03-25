@@ -5,10 +5,17 @@ import java.util.ArrayList;
 public class Student {
 
     //attributes
-    String name;
-    String house;
-    int year;
-    ArrayList<String> spellsLearned;
+    public String name;
+    public String house;
+    public int year;
+    public ArrayList<String> spellsLearned;
+
+    public Student(String name, String house, int year) {
+        this.name = name;
+        this.house = house;
+        this.year = year;
+        this.spellsLearned = new ArrayList<>();
+    }
 
 
     /**
