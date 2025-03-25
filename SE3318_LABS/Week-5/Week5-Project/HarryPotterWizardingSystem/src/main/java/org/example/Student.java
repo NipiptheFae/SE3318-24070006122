@@ -16,13 +16,14 @@ public class Student {
      * requires spell to be not NULL or already in the arraylist.
      * @param spell string to add into the arraylist.
      * @return boolean to see if it's successful.
+     *
      * **/
     public boolean learnSpell(String spell){
 
-        boolean containsSpell = containsSpell(spell); //ASK THIS PART
+        boolean containsSpell = containsSpell(spell);
 
         if (containsSpell || spell == null){
-            return false;
+            throw new IllegalArgumentException("The spell cannot be empty or already learned.");
         }
         else { spellsLearned.add(spell); return true;}
 
